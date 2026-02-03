@@ -67,22 +67,52 @@ diffusion-statlab/
 └── README.md
 ```
 
-## 安装依赖
+## 快速开始
+
+```bash
+# 1. 克隆仓库
+git clone https://github.com/brandlll-lee/diffusion-statlab.git
+cd diffusion-statlab
+
+# 2. 安装依赖（推荐使用可编辑模式）
+pip install -e .
+
+# 3. 运行实验
+python -m experiments.target_stats --config configs/target_stats.yaml
+
+# 4. 查看结果
+ls outputs/run_*/plots/
+```
+
+## 安装说明
+
+### 方式一：可编辑安装（推荐）
+
+```bash
+pip install -e .
+```
+
+这会安装项目及其依赖，并允许你修改代码后立即生效。
+
+### 方式二：仅安装依赖
 
 ```bash
 pip install torch numpy matplotlib pyyaml pytest
 ```
+
+> **注意**：使用方式二时，运行测试可能会遇到 `ModuleNotFoundError`。建议使用方式一。
+
+### 环境要求
+
+- Python >= 3.8
+- PyTorch >= 2.0.0
+- CUDA（可选，用于 GPU 加速）
 
 ## 运行实验
 
 ### 基本用法
 
 ```bash
-# Clone the repository
-git clone https://github.com/brandlll-lee/diffusion-statlab.git
-cd diffusion-statlab
-
-# Run experiment
 python -m experiments.target_stats --config configs/target_stats.yaml
 ```
 

@@ -5,14 +5,24 @@ Thanks for your interest in improving this project.
 ## Development Setup
 
 ```bash
-pip install -r requirements.txt
+# 1. 克隆仓库
+git clone https://github.com/brandlll-lee/diffusion-statlab.git
+cd diffusion-statlab
+
+# 2. 可编辑模式安装（必须，否则测试会失败）
+pip install -e .
+
+# 3. 安装开发依赖
+pip install pytest
 ```
 
 ## Run Tests
 
 ```bash
-pytest -q
+pytest -v
 ```
+
+确保所有测试通过后再提交 PR。
 
 ## Pull Requests
 
