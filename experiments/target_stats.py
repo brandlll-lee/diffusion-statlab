@@ -350,6 +350,7 @@ def main():
         plot_manifold_v_stability(
             manifold_results,
             os.path.join(plots_dir, "manifold_v_stability.png"),
+            title=f"Manifold mode: E[||v||²] stability (d={config.get('manifold_sweep_d', 1024)})",
         )
 
     # ========== 统一指标输出 ==========
