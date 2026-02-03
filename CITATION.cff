@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: "diffusion-statlab"
+message: "If you use this software, please cite it."
+type: software
+authors:
+  - name: "Yiyang LI"
+    alias: "brandlll-lee"
+version: "0.1.0"
+date-released: "2026-02-04"
+repository-code: "https://github.com/brandlll-lee/diffusion-statlab"

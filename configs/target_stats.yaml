@@ -1,0 +1,50 @@
+# Monte Carlo 统计验证实验配置
+# 用于验证 v-prediction 与 epsilon-prediction 的统计特性
+
+# ==================== 基础配置 ====================
+seed: 42 # 随机种子，保证可复现
+device: cpu # 计算设备: cpu 或 cuda
+deterministic: true # 是否启用确定性算法（可能影响性能）
+
+# ==================== 数据配置 ====================
+d: 1024 # 数据维度
+num_samples: 10000 # 总样本数
+batch_size: 1000 # 批大小（控制内存使用）
+
+# x 生成模式
+x_mode: gaussian # 'gaussian' 或 'manifold'
+manifold_k: 64 # 流形模式下的子空间维度（仅当 x_mode='manifold' 时生效）
+
+# 归一化选项
+normalize_x: true # 是否将 x 归一化到 unit norm
+normalize_eps: true # 是否将 epsilon 归一化到 unit norm（与笔记理论保持一致）
+
+# ==================== Schedule 配置 ====================
+schedule_type: circular # 'circular' 或 'cosine'
+num_steps: 100 # 时间步数量
+alpha_min: 0.0001 # alpha_t 的最小值（数值稳定）
+
+# ==================== 输出配置 ====================
+output_dir: outputs # 输出目录
+log_scale_eps: true # eps_scaled 图是否使用对数 y 轴
+
+# ==================== 额外实验配置 ====================
+
+# 维度扫描实验
+run_dimension_sweep: true
+dimension_sweep: # 要测试的维度列表
+  - 64
+  - 256
+  - 1024
+  - 4096
+dimension_sweep_samples: 10000
+
+# 流形扫描实验
+run_manifold_sweep: true
+manifold_sweep_d: 1024 # 固定的数据维度
+manifold_k_values: # 要测试的子空间维度列表
+  - 4
+  - 16
+  - 64
+  - 256
+manifold_sweep_samples: 10000
